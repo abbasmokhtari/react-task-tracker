@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 import Header from './Components/Header'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
     <div className="container">
       <Header />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
