@@ -26,6 +26,11 @@ function App() {
     },
   ])
 
+  // Add Task
+  const addTask = (task) => {
+    console.log(task)
+  }
+
   // Delete Task
   // we are filtering the items whose id is not passed up the chain by clicking
   const deleteTask = (id) => {
@@ -45,7 +50,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <AddTask />
+      <AddTask onAdd={addTask} />
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
