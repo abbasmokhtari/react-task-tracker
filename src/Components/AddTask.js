@@ -38,7 +38,7 @@ function AddTask({ onAdd }) {
         <label>Day & Time</label>
         <input
           type="text"
-          placeholder="Add Day & Time"
+          placeholder="Add & and Time"
           value={day}
           onChange={(e) => setDay(e.target.value)}
         />
@@ -57,7 +57,6 @@ function AddTask({ onAdd }) {
         type="submit"
         value="Save Task"
         className="btn btn-block"
-        onClick={onAdd}
       />
     </form>
   )
