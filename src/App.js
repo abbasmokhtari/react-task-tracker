@@ -5,6 +5,8 @@ import { useState } from 'react'
 import AddTask from './Components/AddTask'
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false)
+  // above is defined to toggle the list on screen
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -28,7 +30,12 @@ function App() {
 
   // Add Task
   const addTask = (task) => {
-    console.log(task)
+    // in order to generate and id
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = { id, ...task }
+    setTasks([...tasks, newTask])
+
+    console.log(id)
   }
 
   // Delete Task
@@ -49,8 +56,13 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {/* function above will reverse the value for showAddTask */}
+      {showAddTask && <AddTask onAdd={addTask} />}
+      {/* if in ternary there is no else we can show it like above  and we want to make button toggles the form we will add it to Header component*/}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
